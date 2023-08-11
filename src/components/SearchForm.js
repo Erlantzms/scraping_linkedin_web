@@ -2,13 +2,16 @@ import React from 'react';
 import { Button, Form, Input } from 'antd';
 import axios from 'axios';
 
-function SearchForm() {
+function SearchForm({setTableData, setTableLoading}) {
     const onFinish = (values) => {
         console.log('Success:', values);
+        setTableLoading(true)
         let url = ('https://scrapinglinkedin.up.railway.app/data')
         axios.get(url)
         .then(response => {
             console.log(response);
+            setTableData(response.data);
+            setTableLoading(true);
         })
         .catch(error => {
             console.log(error)
