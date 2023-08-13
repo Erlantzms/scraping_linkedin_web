@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function SearchForm({setTableData, setTableLoading}) {
     const onFinish = (values) => {
-        console.log('Success:', values);
+        console.log('Values:', values);
         setTableLoading(true)
         let url = ('https://scrapinglinkedin.up.railway.app/data')
         axios.get(url)
